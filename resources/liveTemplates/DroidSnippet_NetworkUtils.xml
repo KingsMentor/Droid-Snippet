@@ -1,0 +1,32 @@
+<templateSet group="DroidSnippet_NetworkUtils">
+  <template name="openWirelessSettings" value=" public  void openWirelessSettings(Context context) {&#10;        context.startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));&#10;    }" description="to open wifi settings" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="COMPLETION" value="false" />
+      <option name="JAVA_CODE" value="true" />
+      <option name="JAVA_COMMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_STRING" value="false" />
+    </context>
+  </template>
+  <template name="getActiveNetworkInfo" value="private  NetworkInfo getActiveNetworkInfo(Context context) {&#10;        return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();&#10;    }" description="get instance of NetwokInfo" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="isConnected" value=" private  NetworkInfo getActiveNetworkInfo(Context context) {&#10;        return ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();&#10;    }&#10;    &#10;public  boolean isConnected(Context context) {&#10;        NetworkInfo info = getActiveNetworkInfo(context);&#10;        return info != null &amp;&amp; info.isConnected();&#10;    }" description="is device connected" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="getDomainAddress" value="public String getDomainAddress(final String domain) {&#10;        InetAddress inetAddress;&#10;        try {&#10;            inetAddress = InetAddress.getByName(domain);&#10;            return inetAddress.getHostAddress();&#10;        } catch (UnknownHostException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        }&#10;    }" description="get the domain address of a domain name" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="getIPAddress" value="// Uses Permission INTERNET_CONNECTION   &#10;    public  String getIPAddress(final boolean useIPv4) {&#10;        try {&#10;            for (Enumeration&lt;NetworkInterface&gt; nis = NetworkInterface.getNetworkInterfaces(); nis.hasMoreElements(); ) {&#10;                NetworkInterface ni = nis.nextElement();&#10;                if (!ni.isUp()) continue;&#10;                for (Enumeration&lt;InetAddress&gt; addresses = ni.getInetAddresses(); addresses.hasMoreElements(); ) {&#10;                    InetAddress inetAddress = addresses.nextElement();&#10;                    if (!inetAddress.isLoopbackAddress()) {&#10;                        String hostAddress = inetAddress.getHostAddress();&#10;                        boolean isIPv4 = hostAddress.indexOf(':') &lt; 0;&#10;                        if (useIPv4) {&#10;                            if (isIPv4) return hostAddress;&#10;                        } else {&#10;                            if (!isIPv4) {&#10;                                int index = hostAddress.indexOf('%');&#10;                                return index &lt; 0 ? hostAddress.toUpperCase() : hostAddress.substring(0, index).toUpperCase();&#10;                            }&#10;                        }&#10;                    }&#10;                }&#10;            }&#10;        } catch (SocketException e) {&#10;            e.printStackTrace();&#10;        }&#10;        return null;&#10;    }" description="retrieve ip Address of the connected network" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

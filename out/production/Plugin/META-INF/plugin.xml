@@ -1,0 +1,43 @@
+<idea-plugin>
+    <id>xyz.belvi.droid_snippet</id>
+    <name>Droid Snippet</name>
+    <version>1.0.0-beta</version>
+    <vendor email="nosakharebelvi@gmail.com" url="http://belvi.xyz">Nosakhare Belvi</vendor>
+
+    <description><![CDATA[
+      Live Coding Template for Android Studio.
+      Speed up development time by adding access to important android utils snippet.
+    ]]></description>
+
+    <change-notes><![CDATA[
+      * Activity Utils.
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+
+
+    <idea-version since-build="143.0"/>
+
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+    <depends>com.intellij.modules.androidstudio</depends>
+
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplatesProvider implementation="xyz.belvi.TemplateProvider"/>
+        <liveTemplateContext implementation="xyz.belvi.TemplateContext"/>
+    </extensions>
+
+    <actions>
+        <!--<group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">-->
+        <!--<add-to-group group-id="MainMenu" anchor="last"/>-->
+        <!--<action id="Myplugin.Textboxes" class="xyz.belvi.HelloAction" text="Hello" description="Says hello"/>-->
+        <!--</group>-->
+    </actions>
+
+</idea-plugin>
