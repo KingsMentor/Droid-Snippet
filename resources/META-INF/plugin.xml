@@ -1,16 +1,29 @@
 <idea-plugin>
     <id>xyz.belvi.droid_snippet</id>
     <name>Droid Snippet</name>
-    <version>1.0.0-beta</version>
+    <version>1.0.0-alpha</version>
     <vendor email="nosakharebelvi@gmail.com" url="http://belvi.xyz">Nosakhare Belvi</vendor>
 
     <description><![CDATA[
-      Live Coding Template for Android Studio.
+      Live Coding Template for Android Studio.<br/>
       Speed up development time by adding access to important android utils snippet.
+
+      <h2>Contributions</h2>
+
+      Send a PR, Suggestions and snippet you used quiet often via
+
+      <a href="https://github.com/KingsMentor/Droid-Snippet">Droid Snippet</a>
+
+      <h2>Credits</h2>
+
+      <a href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode </a>
     ]]></description>
 
     <change-notes><![CDATA[
-      * Activity Utils.
+    <ul>
+      <li>Network Utils</li>
+      <li>Device Utils</li>
+     </ul>
     ]]>
     </change-notes>
 
@@ -20,11 +33,6 @@
     <idea-version since-build="143.0"/>
 
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
     <depends>com.intellij.modules.androidstudio</depends>
 
 
