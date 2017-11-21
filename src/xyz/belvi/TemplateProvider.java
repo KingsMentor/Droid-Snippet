@@ -23,4 +23,6 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
     public String[] getHiddenLiveTemplateFiles() {
         return new String[0];
     }
+
+
 }

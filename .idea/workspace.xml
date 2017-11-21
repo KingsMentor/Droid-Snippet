@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a0637bb-397c-4054-8ef3-501628bef936" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Plugin.jar" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_LocationUtils.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_ScreenUtils.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_Utils.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Plugin/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/out/production/Plugin/META-INF/plugin.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml" afterPath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml" afterPath="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java" afterPath="$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +23,7 @@
       <file leaf-file-name="TemplateContext.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/xyz/belvi/TemplateContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="0">
               <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
               <folding>
                 <element signature="e#207#208#0" expanded="true" />
@@ -34,8 +36,8 @@
       <file leaf-file-name="TemplateProvider.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="345">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#641#642#0" expanded="true" />
                 <element signature="e#677#678#0" expanded="true" />
@@ -44,11 +46,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DroidSnippet_DeviceUtils.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DroidSnippet_NetworkUtils.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -74,16 +96,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DroidSnippet_DeviceUtils.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DefaultLiveTemplatesProvider.class" pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/com/intellij/codeInsight/template/impl/DefaultLiveTemplatesProvider.class">
           <provider selected="true" editor-type-id="text-editor">
@@ -98,6 +110,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -108,12 +125,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/xyz/belvi/TemplateContext.java" />
-        <option value="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml" />
-        <option value="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml" />
-        <option value="$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java" />
         <option value="$PROJECT_DIR$/out/production/Plugin/liveTemplates/DroidSnippet_DeviceUtils.xml" />
         <option value="$PROJECT_DIR$/out/production/Plugin/liveTemplates/DroidSnippet_NetworkUtils.xml" />
         <option value="$PROJECT_DIR$/resources/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java" />
+        <option value="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml" />
+        <option value="$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml" />
       </list>
     </option>
   </component>
@@ -222,39 +239,30 @@
             <path>
               <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
               <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
               <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="out" type="462c0819:PsiDirectoryNode" />
-              <item name="production" type="462c0819:PsiDirectoryNode" />
-              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="liveTemplates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
               <item name="Plugin" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
               <item name="Plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Droid Snippet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="belvi" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -386,12 +394,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511118735615</updated>
       <workItem from="1511118739222" duration="5144000" />
-      <workItem from="1511171981548" duration="5274000" />
+      <workItem from="1511171981548" duration="10360000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10418000" />
+    <option name="totallyTimeSpent" value="15504000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,39 +498,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="45" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xyz/belvi/TemplateContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="0">
           <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
           <folding>
             <element signature="e#207#208#0" expanded="true" />
             <element signature="e#244#245#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -545,8 +527,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xyz/belvi/TemplateProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_DeviceUtils.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/liveTemplates/DroidSnippet_NetworkUtils.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
           <folding />
         </state>
       </provider>
