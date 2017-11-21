@@ -3,7 +3,7 @@
 This plugin is in JetBrains Plugins Repository! Get it from [here](https://plugins.jetbrains.com/plugin/10198-droid-snippet).
 
 # Droid-Snippet
-![Take a look](droid_snippet_usage_demo.mov)
+![Take a look](droid_snippet_usage_demo.gif)
 Android Utils Live Code Template for Android Studio
 
 
