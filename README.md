@@ -13,6 +13,14 @@ Usage:
 
 Find the **Droid Snippet** action  with `CMD+J` shortcut and type the initials of the utils you are looking for.
 
+## Installation
+
+### Online Repository
+Android Studio > Preference > Plugin > Browse Repositories > Search > Droid Snippet > Install and Restart
+
+### Local File
+[Download Droid Snippet.jar](https://github.com/KingsMentor/Droid-Snippet/blob/master/DroidSnippet.jar?raw=true) > Android Studio > Preference > Plugin > Install plugin from disk >  find Droid Snippet . jar> select > Install and Restart
+
 ## Disclaimer
 This is built off utils on [Android Utils Code](https://github.com/Blankj/AndroidUtilCode) . 
 This is continuously a work in progress and more utils will be added based on usage and contributions. 
