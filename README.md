@@ -21,10 +21,21 @@ Android Studio > Preference > Plugin > Browse Repositories > Search > Droid Snip
 ### From Disk
 [Download Droid Snippet.jar](https://github.com/KingsMentor/Droid-Snippet/blob/master/DroidSnippet.jar?raw=true) > Android Studio > Preference > Plugin > Install plugin from disk >  find Droid Snippet . jar> select > Install and Restart
 
+## Setting Up Project on IntelliJ
+
+* Clone repository into local disk
+* Import project
+* [Download Droid Snippet Settings](https://github.com/KingsMentor/Droid-Snippet/blob/master/plugin_settings/droid_snippet_settings.jar?raw=true) 
+* IntelliJ > File > Import Settings > Select droid_snippet_settings.jar > Confirm and Restart IntelliJ
+* `CMD+,` to lauch Preferences Screen on Intellij
+* Editor > Live Templates
+* [Follow Instructions on Using live templates](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
+
 ## Disclaimer
 This is built off utils on [Android Utils Code](https://github.com/Blankj/AndroidUtilCode) . 
 This is continuously a work in progress and more utils will be added based on usage and contributions. 
 
+## Setting Up Project on IntelliJ
 
 
 ## Contribution
