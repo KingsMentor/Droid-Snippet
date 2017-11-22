@@ -13,7 +13,16 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
     public String[] getDefaultLiveTemplateFiles() {
 
 
-        return new String[]{"liveTemplates/DroidSnippet_NetworkUtils", "liveTemplates/DroidSnippet_DeviceUtils"};
+        return new String[]{
+
+                "liveTemplates/DroidSnippet_Utils",
+                "liveTemplates/DroidSnippet_NetworkUtils",
+                "liveTemplates/DroidSnippet_DeviceUtils",
+                "liveTemplates/DroidSnippet_LocationUtils",
+                "liveTemplates/DroidSnippet_ScreenUtils",
+                "liveTemplates/DroidSnippet_PermissionUtils",
+                "liveTemplates/DroidSnippet_IntentUtils"
+        };
 
     }
 
@@ -23,4 +32,6 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
     public String[] getHiddenLiveTemplateFiles() {
         return new String[0];
     }
+
+
 }

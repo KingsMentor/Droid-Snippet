@@ -1,0 +1,17 @@
+<templateSet group="DroidSnippet_PermissionUtils">
+  <template name="permissionUtils_shouldShowRequestPermissionRationale" value="private  boolean shouldShowRequestPermissionRationale(final Context context, final String... deniedPermissions) {&#10;        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.M) return false;&#10;        boolean rationale;&#10;        for (String permission : deniedPermissions) {&#10;            rationale = ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, permission);&#10;            if (rationale) return true;&#10;        }&#10;        return false;&#10;    }" description="if user has previosly denied any of the requested permission" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="permissionUtils_hasAlwaysDeniedPermission" value="  public static boolean hasAlwaysDeniedPermission(final Context context, final String... deniedPermissions) {&#10;        for (String deniedPermission : deniedPermissions) {&#10;            if (!shouldShowRequestPermissionRationale(context, deniedPermission)) {&#10;                return true;&#10;            }&#10;        }&#10;        return false;&#10;    }" description="check if user has always denied a permission" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="permissionUtils_getDeniedPermissions" value="    private static String[] getDeniedPermissions(final Context context, final String[] permissions) {&#10;        List&lt;String&gt; deniedPermissions = new ArrayList&lt;&gt;();&#10;        for (String permission : permissions) {&#10;            if (ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_DENIED) {&#10;                deniedPermissions.add(permission);&#10;            }&#10;        }&#10;        return deniedPermissions.toArray(new String[deniedPermissions.size()]);&#10;    }&#10;" description="get permissions denied by a user" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
