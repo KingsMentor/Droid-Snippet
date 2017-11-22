@@ -1,5 +1,5 @@
 <templateSet group="DroidSnippet_NetworkUtils">
-  <template name="openWirelessSettings" value=" public  void openWirelessSettings(Context context) {&#10;        context.startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));&#10;    }" description="to open wifi settings" toReformat="false" toShortenFQNames="true">
+  <template name="networkUtils_openWirelessSettings" value=" public  void openWirelessSettings(Context context) {&#10;        context.startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));&#10;    }" description="to open wifi settings" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="COMPLETION" value="false" />
       <option name="JAVA_CODE" value="true" />

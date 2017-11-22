@@ -1,0 +1,63 @@
+<templateSet group="DroidSnippet_ScreenUtils">
+  <template name="screenUtils_isTablet" value="public  boolean isTablet(Context context) {&#10;        return (context.getResources().getConfiguration().screenLayout&#10;                &amp; Configuration.SCREENLAYOUT_SIZE_MASK)&#10;                &gt;= Configuration.SCREENLAYOUT_SIZE_LARGE;&#10;    }" description="check if device is tablet" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getSleepDuration" value="public  int getSleepDuration(Context context) {&#10;        try {&#10;            return Settings.System.getInt(context.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT);&#10;        } catch (Settings.SettingNotFoundException e) {&#10;            e.printStackTrace();&#10;            return -123;&#10;        }&#10;    }" description="get time out for screen light in milliseconds" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_isScreenLock" value="public  boolean isScreenLock(Context context) {&#10;        KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);&#10;        return km.inKeyguardRestrictedInputMode();&#10;    }" description="confirm is screen is locked or not" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_setSleepDuration" value="public  void setSleepDuration(Context context,final int duration) {&#10;        Settings.System.putInt(context.getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);&#10;    }" description="set screen timeout duration in milliseconds" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_screenShot" value="   public  Bitmap screenShot(@NonNull final Activity activity, boolean isDeleteStatusBar) {&#10;        View decorView = activity.getWindow().getDecorView();&#10;        decorView.setDrawingCacheEnabled(true);&#10;        decorView.buildDrawingCache();&#10;        Bitmap bmp = decorView.getDrawingCache();&#10;        DisplayMetrics dm = new DisplayMetrics();&#10;        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);&#10;        Bitmap ret;&#10;        if (isDeleteStatusBar) {&#10;            Resources resources = activity.getResources();&#10;            int resourceId = resources.getIdentifier(&quot;status_bar_height&quot;, &quot;dimen&quot;, &quot;android&quot;);&#10;            int statusBarHeight = resources.getDimensionPixelSize(resourceId);&#10;            ret = Bitmap.createBitmap(bmp, 0, statusBarHeight, dm.widthPixels, dm.heightPixels - statusBarHeight);&#10;        } else {&#10;            ret = Bitmap.createBitmap(bmp, 0, 0, dm.widthPixels, dm.heightPixels);&#10;        }&#10;        decorView.destroyDrawingCache();&#10;        return ret;&#10;    }" description="get bitmap of the screen." toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getScreenRotation" value="public  int getScreenRotation(@NonNull final Activity activity) {&#10;        switch (activity.getWindowManager().getDefaultDisplay().getRotation()) {&#10;            default:&#10;            case Surface.ROTATION_0:&#10;                return 0;&#10;            case Surface.ROTATION_90:&#10;                return 90;&#10;            case Surface.ROTATION_180:&#10;                return 180;&#10;            case Surface.ROTATION_270:&#10;                return 270;&#10;        }&#10;    }&#10;" description="get current rotation of the screen" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_isPortrait" value="    public  boolean isPortrait(Context context) {&#10;        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;&#10;    }" description="check if screen is in portrait mode" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_isLandscape" value=" public  boolean isLandscape(Context context) {&#10;        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;&#10;    }" description="check is screen is in landscape mode" toReformat="false" toShortenFQNames="true" />
+  <template name="screenUtils_setFullScreen" value=" public  void setFullScreen(@NonNull final Activity activity) {&#10;        activity.requestWindowFeature(Window.FEATURE_NO_TITLE);&#10;        activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,&#10;                WindowManager.LayoutParams.FLAG_FULLSCREEN);&#10;    }" description="make fullscreen without actionbar" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getScreenWidth" value="public  int getScreenWidth(Context context) {&#10;        return context.getResources().getDisplayMetrics().widthPixels;&#10;    }" description="get width of the scren" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getScreenHeight" value="  public  int getScreenHeight(Context context) {&#10;        return context.getResources().getDisplayMetrics().heightPixels;&#10;    }" description="get heigth of the screen" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getScreenDensity" value="    public  float getScreenDensity(Context context) {&#10;        return context.getResources().getDisplayMetrics().density;&#10;    }" description="get density of the screen" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="screenUtils_getScreenDensityDpi" value="public static int getScreenDensityDpi(Context context) {&#10;        return context.getResources().getDisplayMetrics().densityDpi;&#10;    }" description="get screen density dpi" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

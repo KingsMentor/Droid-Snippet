@@ -1,0 +1,27 @@
+<templateSet group="DroidSnippet_LocationUtils">
+  <template name="locationUtils_isGpsEnabled" value="public  boolean isGpsEnabled(Context context) {&#10;        LocationManager lm = (LocationManager) context.getSystemService(LOCATION_SERVICE);&#10;        return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);&#10;    }" description="check if GPS is enabled" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="locationUtils_isLocationEnabled" value="public  boolean isLocationEnabled(Context context) {&#10;        LocationManager lm = (LocationManager) context.getSystemService(LOCATION_SERVICE);&#10;        return lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || lm.isProviderEnabled(LocationManager.GPS_PROVIDER);&#10;    }" description="check if location is enabled" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="locationUtils_openGpsSettings" value="public static void openGpsSettings(Context context) {&#10;        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);&#10;        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;        context.startActivity(intent);&#10;    }" description="open up GPS setting on device settings page" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="locationUtils_getAddress" value="public  Address getAddress(Context context,double latitude, double longitude) {&#10;        Geocoder geocoder = new Geocoder(context, Locale.getDefault());&#10;        try {&#10;            List&lt;Address&gt; addresses = geocoder.getFromLocation(latitude, longitude, 1);&#10;            if (addresses.size() &gt; 0) return addresses.get(0);&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;        }&#10;        return null;&#10;    }" description="getAddress from latitude and longitude" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="locationUtils_getStreet" value="public  String getStreet(Context context,double latitude, double longitude) {&#10;        Address address = getAddress(context,latitude, longitude);&#10;        return address == null ? &quot;unknown&quot; : address.getAddressLine(0);&#10;    }" description="getStreet name  from location coordinates" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,62 @@
+<templateSet group="DroidSnippet_IntentUtils">
+  <template name="intentUtils_getCaptureIntent" value="   public  Intent getCaptureIntent(final Uri outUri) {&#10;        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);&#10;        intent.putExtra(MediaStore.EXTRA_OUTPUT, outUri);&#10;        return intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="intents supporting camera | capture" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getSendSmsIntent" value=" public  Intent getSendSmsIntent(final String phoneNumber, final String content) {&#10;        Uri uri = Uri.parse(&quot;smsto:&quot; + phoneNumber);&#10;        Intent intent = new Intent(Intent.ACTION_SENDTO, uri);&#10;        intent.putExtra(&quot;sms_body&quot;, content);&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="for intents to send sms" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_newEmailIntent" value="public  Intent newEmailIntent(String[] addresses, String subject, String body, Uri attachment) {&#10;        Intent intent = new Intent(Intent.ACTION_SEND);&#10;        if (addresses != null) intent.putExtra(Intent.EXTRA_EMAIL, addresses);&#10;        if (body != null) intent.putExtra(Intent.EXTRA_TEXT, body);&#10;        if (subject != null) intent.putExtra(Intent.EXTRA_SUBJECT, subject);&#10;        if (attachment != null) intent.putExtra(Intent.EXTRA_STREAM, attachment);&#10;        intent.setType(MIME_TYPE_EMAIL);&#10;&#10;        return intent;&#10;    }" description="for intent supporting sending mails" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getCallIntent" value="public  Intent getCallIntent(final String phoneNumber) {&#10;        Intent intent = new Intent(&quot;android.intent.action.CALL&quot;, Uri.parse(&quot;tel:&quot; + phoneNumber));&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="for intent supporting phone call" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getDialIntent" value="public  Intent getDialIntent(final String phoneNumber) {&#10;        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(&quot;tel:&quot; + phoneNumber));&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="for dialer intents" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getShutdownIntent" value=" public  Intent getShutdownIntent() {&#10;        Intent intent = new Intent(Intent.ACTION_SHUTDOWN);&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="intent supporting device shutdown" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getComponentIntent" value="public  Intent getComponentIntent(final String packageName, final String className, final Bundle bundle) {&#10;        Intent intent = new Intent(Intent.ACTION_VIEW);&#10;        if (bundle != null) intent.putExtras(bundle);&#10;        ComponentName cn = new ComponentName(packageName, className);&#10;        intent.setComponent(cn);&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="get component from app intent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getShareImageIntent" value="    public  Intent getShareImageIntent(final String content, final Uri uri) {&#10;        Intent intent = new Intent(Intent.ACTION_SEND);&#10;        intent.putExtra(Intent.EXTRA_TEXT, content);&#10;        intent.putExtra(Intent.EXTRA_STREAM, uri);&#10;        intent.setType(&quot;image/*&quot;);&#10;        return intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="intents for image sharing" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getShareTextIntent" value="  public  Intent getShareTextIntent(final String content) {&#10;        Intent intent = new Intent(Intent.ACTION_SEND);&#10;        intent.setType(&quot;text/plain&quot;);&#10;        intent.putExtra(Intent.EXTRA_TEXT, content);&#10;        return intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="intent for text sharing" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getAppDetailsSettingsIntent" value="&#10;    public  Intent getAppDetailsSettingsIntent(final String packageName) {&#10;        Intent intent = new Intent(&quot;android.settings.APPLICATION_DETAILS_SETTINGS&quot;);&#10;        intent.setData(Uri.parse(&quot;package:&quot; + packageName));&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="get app details on settings intent" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getLaunchAppIntent" value="public  Intent getLaunchAppIntent(Context context,final String packageName) {&#10;        return context.getPackageManager().getLaunchIntentForPackage(packageName);&#10;    }" description="launch application by package name" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="intentUtils_getUninstallAppIntent" value="&#10;    public static Intent getUninstallAppIntent(final String packageName) {&#10;        Intent intent = new Intent(Intent.ACTION_DELETE);&#10;        intent.setData(Uri.parse(&quot;package:&quot; + packageName));&#10;        return intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);&#10;    }" description="intents supportign app uninstallation" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
