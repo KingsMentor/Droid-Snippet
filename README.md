@@ -35,9 +35,6 @@ Android Studio > Preference > Plugin > Browse Repositories > Search > Droid Snip
 This is built off utils on [Android Utils Code](https://github.com/Blankj/AndroidUtilCode) . 
 This is continuously a work in progress and more utils will be added based on usage and contributions. 
 
-## Setting Up Project on IntelliJ
-
-
 ## Contribution
 
 Contribution can be in form of `suggesting codes` or [live templates](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
