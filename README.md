@@ -29,7 +29,7 @@ Android Studio > Preference > Plugin > Browse Repositories > Search > Droid Snip
 * IntelliJ > File > Import Settings > Select droid_snippet_settings.jar > Confirm and Restart IntelliJ
 * `CMD+,` to lauch Preferences Screen on Intellij
 * Editor > Live Templates
-* [Learn more on seeting up live templates](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
+* [Learn more on live template support](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
 
 ## Disclaimer
 This is built off utils on [Android Utils Code](https://github.com/Blankj/AndroidUtilCode) . 
