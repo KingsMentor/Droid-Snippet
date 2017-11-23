@@ -36,8 +36,9 @@ This is built off utils on [Android Utils Code](https://github.com/Blankj/Androi
 This is continuously a work in progress and more utils will be added based on usage and contributions. 
 
 ## Contribution
-
-Contribution can be in form of `suggesting codes` or [live templates](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
+* Snippets can be suggested by adding utilsFile.java to `/snippets` on the repository or
+* Contribution to [Android Utils Code](https://github.com/Blankj/AndroidUtilCode)  or 
+* [Live templates](https://www.jetbrains.org/intellij/sdk/docs/tutorials/live_templates/template_support.html)
 
 ### Before sending a PR
 
