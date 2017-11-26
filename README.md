@@ -19,7 +19,7 @@ Find the **Droid Snippet** action  with `CMD+J` shortcut and type the initials o
 Android Studio > Preference > Plugin > Browse Repositories > Search > Droid Snippet > Install and Restart
 
 ### From Disk
-[Download Droid Snippet.jar](https://github.com/KingsMentor/Droid-Snippet/blob/master/DroidSnippet.jar?raw=true) > Android Studio > Preference > Plugin > Install plugin from disk >  find Droid Snippet . jar> select > Install and Restart
+[Download Droid Snippet.jar](https://github.com/KingsMentor/Droid-Snippet/blob/master/Plugin.jar?raw=true) > Android Studio > Preference > Plugin > Install plugin from disk >  find Droid Snippet . jar> select > Install and Restart
 
 ## Setting Up Project on IntelliJ
 
