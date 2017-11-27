@@ -1,0 +1,32 @@
+<templateSet group="DroidSnippet_ServiceUtils">
+  <template name="serviceUtils_getAllRunningService" value="public  Set getAllRunningService(Context context) {&#10;        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);&#10;        List&lt;RunningServiceInfo&gt; info = activityManager.getRunningServices(0x7FFFFFFF);&#10;        Set&lt;String&gt; names = new HashSet&lt;&gt;();&#10;        if (info == null || info.size() == 0) return null;&#10;        for (RunningServiceInfo aInfo : info) {&#10;            names.add(aInfo.service.getClassName());&#10;        }&#10;        return names;&#10;    }" description="get running services" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="serviceUtils_startService" value=" public  void startService(Context context, Class&lt;?&gt; cls) {&#10;        Intent intent = new Intent(context, cls);&#10;        Utils.getApp().startService(intent);&#10;    }" description="start a service" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="serviceUtils_stopService" value=" public  boolean stopService(Context context, Class&lt;?&gt; cls) {&#10;        Intent intent = new Intent(Utils.getApp(), cls);&#10;        return context.stopService(intent);&#10;    }" description="stop a service" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="serviceUtils_bindService" value="public  void bindService(Context context, Class&lt;?&gt; cls, final ServiceConnection conn, final int flags) {&#10;        Intent intent = new Intent(Utils.getApp(), cls);&#10;        context.bindService(intent, conn, flags);&#10;    }" description="to bind a service" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="serviceUtils_unbindService" value="    public  void unbindService(Context context, ServiceConnection conn) {&#10;        context.unbindService(conn);&#10;    }" description="to unbind a service" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="serviceUtils_isServiceRunning" value=" public  boolean isServiceRunning(Context context, String className) {&#10;        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);&#10;        List&lt;RunningServiceInfo&gt; info = activityManager.getRunningServices(0x7FFFFFFF);&#10;        if (info == null || info.size() == 0) return false;&#10;        for (RunningServiceInfo aInfo : info) {&#10;            if (className.equals(aInfo.service.getClassName())) return true;&#10;        }&#10;        return false;&#10;    }" description="verify is a service is running" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

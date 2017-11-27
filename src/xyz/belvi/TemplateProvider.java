@@ -21,7 +21,8 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
                 "liveTemplates/DroidSnippet_LocationUtils",
                 "liveTemplates/DroidSnippet_ScreenUtils",
                 "liveTemplates/DroidSnippet_PermissionUtils",
-                "liveTemplates/DroidSnippet_IntentUtils"
+                "liveTemplates/DroidSnippet_IntentUtils",
+                "liveTemplates/DroidSnippet_ServiceUtils"
         };
 
     }

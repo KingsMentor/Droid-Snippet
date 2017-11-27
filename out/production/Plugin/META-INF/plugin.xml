@@ -19,7 +19,11 @@
       <a href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode </a>
     ]]></description>
 
+
+
     <change-notes><![CDATA[
+
+    <h2>1.0.0-beta</h2>
     <ul>
       <li>Utils</li>
       <li>Network Utils</li>
@@ -28,6 +32,12 @@
       <li>Location Utils</li>
       <li>Permission Utils</li>
       <li>Intent Utils</li>
+     </ul>
+
+     <h2>1.0.1</h2>
+     <ul>
+      <li>Service Utils</li>
+
      </ul>
     ]]>
     </change-notes>
