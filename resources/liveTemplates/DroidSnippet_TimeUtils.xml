@@ -1,0 +1,32 @@
+<templateSet group="DroidSnippet_TimeUtils">
+  <template name="timeUtils_millis2String" value="public  String millis2String(final long millis, final DateFormat format) {&#10;        return format.format(new Date(millis));&#10;    }" description="time in miliseconds to string" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="timeUtils_string2Millis" value="public  long string2Millis(final String time, final DateFormat format) {&#10;        try {&#10;            return format.parse(time).getTime();&#10;        } catch (ParseException e) {&#10;            e.printStackTrace();&#10;        }&#10;        return -1;&#10;    }" description="convert time string to milliseconds" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="timeUtils_string2Date" value="public  Date string2Date(final String time, final DateFormat format) {&#10;        try {&#10;            return format.parse(time);&#10;        } catch (ParseException e) {&#10;            e.printStackTrace();&#10;        }&#10;        return null;&#10;    }" description="convert string time to data" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="timeUtils_date2String" value="public  String date2String(final Date date, final DateFormat format) {&#10;        return format.format(date);&#10;    }&#10;" description="convert date to string" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="timeUtils_millis2Date" value="    public  Date millis2Date(final long millis) {&#10;        return new Date(millis);&#10;    }" description="convert time in milliseconds to date" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="timeUtils_isLeapYear" value="public static boolean isLeapYear(final int year) {&#10;        return year % 4 == 0 &amp;&amp; year % 100 != 0 || year % 400 == 0;&#10;    }" description="check if a year is a leap year" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

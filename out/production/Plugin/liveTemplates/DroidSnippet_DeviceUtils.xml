@@ -9,7 +9,7 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
-  <template name="deviceUtils_getAndroidID" value="public static String getAndroidID() {&#10;        return Settings.Secure.getString(Utils.getApp().getContentResolver(), Settings.Secure.ANDROID_ID);&#10;    }" description="get ID of the device" toReformat="false" toShortenFQNames="true">
+  <template name="deviceUtils_getAndroidID" value="public  String getAndroidID(Context context) {&#10;        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);&#10;    }" description="get ID of the device" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_DECLARATION" value="true" />
     </context>

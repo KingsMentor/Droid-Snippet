@@ -1,0 +1,17 @@
+<templateSet group="DroidSnippet_FileUtils">
+  <template name="fileUtils_createFileByDeleteOldFile" value="    private  boolean createFileByDeleteOldFile(final File file) {&#10;        if (file == null) return false;&#10;        if (file.exists() &amp;&amp; !file.delete()) return false;&#10;        if (!createOrExistsDir(file.getParentFile())) return false;&#10;        try {&#10;            return file.createNewFile();&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return false;&#10;        }&#10;    }" description="create or delete old file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="fileUtils_createOrExistsDir" value="private  boolean createOrExistsDir(final File file) {&#10;     &#10;        return file != null &amp;&amp; (file.exists() ? file.isDirectory() : file.mkdirs());&#10;    }" description="create directory if not exist" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="fileUtils_getFileByPath" value=" private  File getFileByPath( String filePath) {&#10;        return isSpace(filePath) ? null : new File(filePath);&#10;    }&#10;" description="get file by path" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

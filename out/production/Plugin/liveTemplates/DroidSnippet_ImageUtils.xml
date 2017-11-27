@@ -1,0 +1,242 @@
+<templateSet group="DroidSnippet_ImageUtils">
+  <template name="imageUtils_bitmap2Bytes" value=" public  byte[] bitmap2Bytes(final Bitmap bitmap, final CompressFormat format) {&#10;        if (bitmap == null) return null;&#10;        ByteArrayOutputStream baos = new ByteArrayOutputStream();&#10;        bitmap.compress(format, 100, baos);&#10;        return baos.toByteArray();&#10;    }" description="convert bitmap to byte" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_bytes2Bitmap" value="public  Bitmap bytes2Bitmap(final byte[] bytes) {&#10;        return (bytes == null || bytes.length == 0) ? null : BitmapFactory.decodeByteArray(bytes, 0, bytes.length);&#10;    }&#10;" description="convert byte to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_drawable2Bitmap" value="public  Bitmap drawable2Bitmap(final Drawable drawable) {&#10;        if (drawable instanceof BitmapDrawable) {&#10;            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;&#10;            if (bitmapDrawable.getBitmap() != null) {&#10;                return bitmapDrawable.getBitmap();&#10;            }&#10;        }&#10;        Bitmap bitmap;&#10;        if (drawable.getIntrinsicWidth() &lt;= 0 || drawable.getIntrinsicHeight() &lt;= 0) {&#10;            bitmap = Bitmap.createBitmap(1, 1,&#10;                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);&#10;        } else {&#10;            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),&#10;                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);&#10;        }&#10;        Canvas canvas = new Canvas(bitmap);&#10;        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());&#10;        drawable.draw(canvas);&#10;        return bitmap;&#10;    }&#10;" description="convert drawable to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_bitmap2Drawable" value=" public  Drawable bitmap2Drawable(final Bitmap bitmap) {&#10;        return bitmap == null ? null : new BitmapDrawable(Utils.getApp().getResources(), bitmap);&#10;    }" description="convert bitmap to drawable" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_drawable2Bytes" value="public  byte[] drawable2Bytes(final Drawable drawable, final CompressFormat format) {&#10;        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format);&#10;    }" description="convert drawable to byte" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_bytes2Drawable" value="public static Drawable bytes2Drawable(final byte[] bytes) {&#10;        return bitmap2Drawable(bytes2Bitmap(bytes));&#10;    }" description="convert byte to drawable" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_view2Bitmap" value=" public  Bitmap view2Bitmap(final View view) {&#10;        if (view == null) return null;&#10;        Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);&#10;        Canvas canvas = new Canvas(ret);&#10;        Drawable bgDrawable = view.getBackground();&#10;        if (bgDrawable != null) {&#10;            bgDrawable.draw(canvas);&#10;        } else {&#10;            canvas.drawColor(Color.WHITE);&#10;        }&#10;        view.draw(canvas);&#10;        return ret;&#10;    }&#10;" description="convert view to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromFile" value="public  Bitmap getBitmap(final File file) {&#10;        if (file == null) return null;&#10;        return BitmapFactory.decodeFile(file.getAbsolutePath());&#10;    }" description="get bitmap from a file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromFileWithOptions" value="  public  Bitmap getBitmap(final File file, final int maxWidth, final int maxHeight) {&#10;        if (file == null) return null;&#10;        BitmapFactory.Options options = new BitmapFactory.Options();&#10;        options.inJustDecodeBounds = true;&#10;        BitmapFactory.decodeFile(file.getAbsolutePath(), options);&#10;        options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);&#10;        options.inJustDecodeBounds = false;&#10;        return BitmapFactory.decodeFile(file.getAbsolutePath(), options);&#10;    }" description="get bitmap from file with options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapfromInputStream" value="public  Bitmap getBitmap(final InputStream is) {&#10;        if (is == null) return null;&#10;        return BitmapFactory.decodeStream(is);&#10;    }" description="get bitmap from input scream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromInputStreamOptions" value="public  Bitmap getBitmap(final InputStream is, final int maxWidth, final int maxHeight) {&#10;        if (is == null) return null;&#10;        byte[] bytes = input2Byte(is);&#10;        return getBitmap(bytes, 0, maxWidth, maxHeight);&#10;    }" description="get bitmap from input stream with options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromByte" value="    public  Bitmap getBitmap(final byte[] data, final int offset) {&#10;        if (data.length == 0) return null;&#10;        return BitmapFactory.decodeByteArray(data, offset, data.length);&#10;    }" description="get bitmap from byte" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromByteWithOptions" value="public  Bitmap getBitmap(final byte[] data, final int offset, final int maxWidth, final int maxHeight) {&#10;        if (data.length == 0) return null;&#10;        BitmapFactory.Options options = new BitmapFactory.Options();&#10;        options.inJustDecodeBounds = true;&#10;        BitmapFactory.decodeByteArray(data, offset, data.length, options);&#10;        options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);&#10;        options.inJustDecodeBounds = false;&#10;        return BitmapFactory.decodeByteArray(data, offset, data.length, options);&#10;    }&#10;" description="get bitmap from file with options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapWithResId" value=" public static Bitmap getBitmap(@DrawableRes final int resId) {&#10;        Drawable drawable = ContextCompat.getDrawable(Utils.getApp(), resId);&#10;        Canvas canvas = new Canvas();&#10;        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);&#10;        canvas.setBitmap(bitmap);&#10;        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());&#10;        drawable.draw(canvas);&#10;        return bitmap;&#10;    }" description="get bitmap with drawable resource id" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromResIdOptions" value="  /**&#10;     * 获取bitmap&#10;     *&#10;     * @param resId     &#10;     * @param maxWidth  &#10;     * @param maxHeight &#10;     * @return bitmap&#10;     */&#10;    public  Bitmap getBitmap(@DrawableRes final int resId, final int maxWidth, final int maxHeight) {&#10;        BitmapFactory.Options options = new BitmapFactory.Options();&#10;        final Resources resources = Utils.getApp().getResources();&#10;        options.inJustDecodeBounds = true;&#10;        BitmapFactory.decodeResource(resources, resId, options);&#10;        options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);&#10;        options.inJustDecodeBounds = false;&#10;        return BitmapFactory.decodeResource(resources, resId, options);&#10;    }" description="get bitmap from resource id with options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromFileDescriptor" value="public  Bitmap getBitmap(final FileDescriptor fd) {&#10;        if (fd == null) return null;&#10;        return BitmapFactory.decodeFileDescriptor(fd);&#10;    }" description="get bitmap from file descriptor" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getBitmapFromFileDescriptorWithOptions" value="    public  Bitmap getBitmap(final FileDescriptor fd, final int maxWidth, final int maxHeight) {&#10;        if (fd == null) return null;&#10;        BitmapFactory.Options options = new BitmapFactory.Options();&#10;        options.inJustDecodeBounds = true;&#10;        BitmapFactory.decodeFileDescriptor(fd, null, options);&#10;        options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);&#10;        options.inJustDecodeBounds = false;&#10;        return BitmapFactory.decodeFileDescriptor(fd, null, options);&#10;    }" description="get bitmap from file descriptor with options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_scale" value="public  Bitmap scale(final Bitmap src, final int newWidth, final int newHeight, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = Bitmap.createScaledBitmap(src, newWidth, newHeight, true);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="scale bit map" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_scaleWithOptions" value="public  Bitmap scale(final Bitmap src, final float scaleWidth, final float scaleHeight, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Matrix matrix = new Matrix();&#10;        matrix.setScale(scaleWidth, scaleHeight);&#10;        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="scale bitmap with scale options" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_clip" value=" public static Bitmap clip(final Bitmap src, final int x, final int y, final int width, final int height, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = Bitmap.createBitmap(src, x, y, width, height);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="clip bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_skew" value="public  Bitmap skew(final Bitmap src, final float kx, final float ky, final float px, final float py, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Matrix matrix = new Matrix();&#10;        matrix.setSkew(kx, ky, px, py);&#10;        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="skew a bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_roate" value="public  Bitmap rotate(final Bitmap src, final int degrees, final float px, final float py, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        if (degrees == 0) return src;&#10;        Matrix matrix = new Matrix();&#10;        matrix.setRotate(degrees, px, py);&#10;        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="rotate a bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getRotateDegree" value=" public  int getRotateDegree(final String filePath) {&#10;        int degree = 0;&#10;        try {&#10;            ExifInterface exifInterface = new ExifInterface(filePath);&#10;            int orientation = exifInterface.getAttributeInt(&#10;                    ExifInterface.TAG_ORIENTATION,&#10;                    ExifInterface.ORIENTATION_NORMAL);&#10;            switch (orientation) {&#10;                default:&#10;                case ExifInterface.ORIENTATION_ROTATE_90:&#10;                    degree = 90;&#10;                    break;&#10;                case ExifInterface.ORIENTATION_ROTATE_180:&#10;                    degree = 180;&#10;                    break;&#10;                case ExifInterface.ORIENTATION_ROTATE_270:&#10;                    degree = 270;&#10;                    break;&#10;            }&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;        }&#10;        return degree;&#10;    }" description="get image orientation" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_toRound" value="public  Bitmap toRound(final Bitmap src,&#10;                                 @IntRange(from = 0) int borderSize,&#10;                                 @ColorInt int borderColor,&#10;                                 final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        int width = src.getWidth();&#10;        int height = src.getHeight();&#10;        int size = Math.min(width, height);&#10;        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());&#10;        float center = size / 2f;&#10;        RectF rectF = new RectF(0, 0, width, height);&#10;        rectF.inset((width - size) / 2f, (height - size) / 2f);&#10;        Matrix matrix = new Matrix();&#10;        matrix.setTranslate(rectF.left, rectF.top);&#10;        matrix.preScale((float) size / width, (float) size / height);&#10;        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);&#10;        shader.setLocalMatrix(matrix);&#10;        paint.setShader(shader);&#10;        Canvas canvas = new Canvas(ret);&#10;        canvas.drawRoundRect(rectF, center, center, paint);&#10;        if (borderSize &gt; 0) {&#10;            paint.setShader(null);&#10;            paint.setColor(borderColor);&#10;            paint.setStyle(Paint.Style.STROKE);&#10;            paint.setStrokeWidth(borderSize);&#10;            float radius = center - borderSize / 2f;&#10;            canvas.drawCircle(width / 2f, height / 2f, radius, paint);&#10;        }&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="make bitmap round" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_toRoundCorner" value="public  Bitmap toRoundCorner(final Bitmap src,&#10;                                       final float radius,&#10;                                       @IntRange(from = 0) int borderSize,&#10;                                       @ColorInt int borderColor,&#10;                                       final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        int width = src.getWidth();&#10;        int height = src.getHeight();&#10;        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());&#10;        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);&#10;        paint.setShader(shader);&#10;        Canvas canvas = new Canvas(ret);&#10;        RectF rectF = new RectF(0, 0, width, height);&#10;        float halfBorderSize = borderSize / 2f;&#10;        rectF.inset(halfBorderSize, halfBorderSize);&#10;        canvas.drawRoundRect(rectF, radius, radius, paint);&#10;        if (borderSize &gt; 0) {&#10;            paint.setShader(null);&#10;            paint.setColor(borderColor);&#10;            paint.setStyle(Paint.Style.STROKE);&#10;            paint.setStrokeWidth(borderSize);&#10;            paint.setStrokeCap(Paint.Cap.ROUND);&#10;            canvas.drawRoundRect(rectF, radius, radius, paint);&#10;        }&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="add round corners to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_addBorder" value=" private  Bitmap addBorder(final Bitmap src,&#10;                                    @IntRange(from = 1) final int borderSize,&#10;                                    @ColorInt final int color,&#10;                                    final boolean isCircle,&#10;                                    final float cornerRadius,&#10;                                    final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = recycle ? src : src.copy(src.getConfig(), true);&#10;        int width = ret.getWidth();&#10;        int height = ret.getHeight();&#10;        Canvas canvas = new Canvas(ret);&#10;        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;        paint.setColor(color);&#10;        paint.setStyle(Paint.Style.STROKE);&#10;        paint.setStrokeWidth(borderSize);&#10;        if (isCircle) {&#10;            float radius = Math.min(width, height) / 2f - borderSize / 2f;&#10;            canvas.drawCircle(width / 2f, height / 2f, radius, paint);&#10;        } else {&#10;            int halfBorderSize = borderSize &gt;&gt; 1;&#10;            RectF rectF = new RectF(halfBorderSize, halfBorderSize,&#10;                    width - halfBorderSize, height - halfBorderSize);&#10;            canvas.drawRoundRect(rectF, cornerRadius, cornerRadius, paint);&#10;        }&#10;        return ret;&#10;    }&#10;" description="add border to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_addReflection" value="public static Bitmap addReflection(final Bitmap src,&#10;                                       final int reflectionHeight,&#10;                                       final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        final int REFLECTION_GAP = 0;&#10;        int srcWidth = src.getWidth();&#10;        int srcHeight = src.getHeight();&#10;        Matrix matrix = new Matrix();&#10;        matrix.preScale(1, -1);&#10;        Bitmap reflectionBitmap = Bitmap.createBitmap(src, 0, srcHeight - reflectionHeight,&#10;                srcWidth, reflectionHeight, matrix, false);&#10;        Bitmap ret = Bitmap.createBitmap(srcWidth, srcHeight + reflectionHeight, src.getConfig());&#10;        Canvas canvas = new Canvas(ret);&#10;        canvas.drawBitmap(src, 0, 0, null);&#10;        canvas.drawBitmap(reflectionBitmap, 0, srcHeight + REFLECTION_GAP, null);&#10;        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;        LinearGradient shader = new LinearGradient(&#10;                0, srcHeight,&#10;                0, ret.getHeight() + REFLECTION_GAP,&#10;                0x70FFFFFF,&#10;                0x00FFFFFF,&#10;                Shader.TileMode.MIRROR);&#10;        paint.setShader(shader);&#10;        paint.setXfermode(new PorterDuffXfermode(android.graphics.PorterDuff.Mode.DST_IN));&#10;        canvas.drawRect(0, srcHeight + REFLECTION_GAP, srcWidth, ret.getHeight(), paint);&#10;        if (!reflectionBitmap.isRecycled()) reflectionBitmap.recycle();&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="make bitmap reflection" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_addTextWatermark" value="public  Bitmap addTextWatermark(final Bitmap src,&#10;                                          final String content,&#10;                                          final float textSize,&#10;                                          @ColorInt final int color,&#10;                                          final float x,&#10;                                          final float y,&#10;                                          final boolean recycle) {&#10;        if (isEmptyBitmap(src) || content == null) return null;&#10;        Bitmap ret = src.copy(src.getConfig(), true);&#10;        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;        Canvas canvas = new Canvas(ret);&#10;        paint.setColor(color);&#10;        paint.setTextSize(textSize);&#10;        Rect bounds = new Rect();&#10;        paint.getTextBounds(content, 0, content.length(), bounds);&#10;        canvas.drawText(content, x, y + textSize, paint);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="add text water mark to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_addImageWatermark" value="  public  Bitmap addImageWatermark(final Bitmap src,&#10;                                           final Bitmap watermark,&#10;                                           final int x,&#10;                                           final int y,&#10;                                           final int alpha,&#10;                                           final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = src.copy(src.getConfig(), true);&#10;        if (!isEmptyBitmap(watermark)) {&#10;            Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);&#10;            Canvas canvas = new Canvas(ret);&#10;            paint.setAlpha(alpha);&#10;            canvas.drawBitmap(watermark, x, y, paint);&#10;        }&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="add image watermark to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_toAlpha" value="public  Bitmap toAlpha(final Bitmap src, final Boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = src.extractAlpha();&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="to alpha" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_toGray" value="public static Bitmap toGray(final Bitmap src, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        Bitmap ret = Bitmap.createBitmap(src.getWidth(), src.getHeight(), src.getConfig());&#10;        Canvas canvas = new Canvas(ret);&#10;        Paint paint = new Paint();&#10;        ColorMatrix colorMatrix = new ColorMatrix();&#10;        colorMatrix.setSaturation(0);&#10;        ColorMatrixColorFilter colorMatrixColorFilter = new ColorMatrixColorFilter(colorMatrix);&#10;        paint.setColorFilter(colorMatrixColorFilter);&#10;        canvas.drawBitmap(src, 0, 0, paint);&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }" description="bitmap to gray" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_fastBlur" value="public  Bitmap fastBlur(final Bitmap src,&#10;                                  @FloatRange(from = 0, to = 1, fromInclusive = false) final float scale,&#10;                                  @FloatRange(from = 0, to = 25, fromInclusive = false) final float radius,&#10;                                  final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        int width = src.getWidth();&#10;        int height = src.getHeight();&#10;        Matrix matrix = new Matrix();&#10;        matrix.setScale(scale, scale);&#10;        Bitmap scaleBitmap = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);&#10;        Paint paint = new Paint(Paint.FILTER_BITMAP_FLAG | Paint.ANTI_ALIAS_FLAG);&#10;        Canvas canvas = new Canvas();&#10;        PorterDuffColorFilter filter = new PorterDuffColorFilter(&#10;                Color.TRANSPARENT, PorterDuff.Mode.SRC_ATOP);&#10;        paint.setColorFilter(filter);&#10;        canvas.scale(scale, scale);&#10;        canvas.drawBitmap(scaleBitmap, 0, 0, paint);&#10;        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.JELLY_BEAN_MR1) {&#10;            scaleBitmap = renderScriptBlur(scaleBitmap, radius, recycle);&#10;        } else {&#10;            scaleBitmap = stackBlur(scaleBitmap, (int) radius, recycle);&#10;        }&#10;        if (scale == 1) return scaleBitmap;&#10;        Bitmap ret = Bitmap.createScaledBitmap(scaleBitmap, width, height, true);&#10;        if (scaleBitmap != null &amp;&amp; !scaleBitmap.isRecycled()) scaleBitmap.recycle();&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return ret;&#10;    }&#10;" description="blur bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_renderScriptBlur" value="    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)&#10;    public static Bitmap renderScriptBlur(final Bitmap src,&#10;                                          @FloatRange(from = 0, to = 25, fromInclusive = false) final float radius,&#10;                                          final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        RenderScript rs = null;&#10;        Bitmap ret = recycle ? src : src.copy(src.getConfig(), true);&#10;        try {&#10;            rs = RenderScript.create(Utils.getApp());&#10;            rs.setMessageHandler(new RenderScript.RSMessageHandler());&#10;            Allocation input = Allocation.createFromBitmap(rs, ret, Allocation.MipmapControl.MIPMAP_NONE, Allocation&#10;                    .USAGE_SCRIPT);&#10;            Allocation output = Allocation.createTyped(rs, input.getType());&#10;            ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));&#10;            blurScript.setInput(input);&#10;            blurScript.setRadius(radius);&#10;            blurScript.forEach(output);&#10;            output.copyTo(ret);&#10;        } finally {&#10;            if (rs != null) {&#10;                rs.destroy();&#10;            }&#10;        }&#10;        return ret;&#10;    }" description="blur bitmap with renderscript" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_stackBlur" value="/**&#10;     * stack &#10;     *&#10;     * @param src     &#10;     * @param radius   &#10;     * @param recycle  &#10;     * @return stack &#10;     */&#10;    public  Bitmap stackBlur(final Bitmap src, final int radius, final boolean recycle) {&#10;        Bitmap ret = recycle ? src : src.copy(src.getConfig(), true);&#10;        if (radius &lt; 1) {&#10;            return null;&#10;        }&#10;&#10;        int w = ret.getWidth();&#10;        int h = ret.getHeight();&#10;&#10;        int[] pix = new int[w * h];&#10;        ret.getPixels(pix, 0, w, 0, 0, w, h);&#10;&#10;        int wm = w - 1;&#10;        int hm = h - 1;&#10;        int wh = w * h;&#10;        int div = radius + radius + 1;&#10;&#10;        int r[] = new int[wh];&#10;        int g[] = new int[wh];&#10;        int b[] = new int[wh];&#10;        int rsum, gsum, bsum, x, y, i, p, yp, yi, yw;&#10;        int vmin[] = new int[Math.max(w, h)];&#10;&#10;        int divsum = (div + 1) &gt;&gt; 1;&#10;        divsum *= divsum;&#10;        int dv[] = new int[256 * divsum];&#10;        for (i = 0; i &lt; 256 * divsum; i++) {&#10;            dv[i] = (i / divsum);&#10;        }&#10;&#10;        yw = yi = 0;&#10;&#10;        int[][] stack = new int[div][3];&#10;        int stackpointer;&#10;        int stackstart;&#10;        int[] sir;&#10;        int rbs;&#10;        int r1 = radius + 1;&#10;        int routsum, goutsum, boutsum;&#10;        int rinsum, ginsum, binsum;&#10;&#10;        for (y = 0; y &lt; h; y++) {&#10;            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = 0;&#10;            for (i = -radius; i &lt;= radius; i++) {&#10;                p = pix[yi + Math.min(wm, Math.max(i, 0))];&#10;                sir = stack[i + radius];&#10;                sir[0] = (p &amp; 0xff0000) &gt;&gt; 16;&#10;                sir[1] = (p &amp; 0x00ff00) &gt;&gt; 8;&#10;                sir[2] = (p &amp; 0x0000ff);&#10;                rbs = r1 - Math.abs(i);&#10;                rsum += sir[0] * rbs;&#10;                gsum += sir[1] * rbs;&#10;                bsum += sir[2] * rbs;&#10;                if (i &gt; 0) {&#10;                    rinsum += sir[0];&#10;                    ginsum += sir[1];&#10;                    binsum += sir[2];&#10;                } else {&#10;                    routsum += sir[0];&#10;                    goutsum += sir[1];&#10;                    boutsum += sir[2];&#10;                }&#10;            }&#10;            stackpointer = radius;&#10;&#10;            for (x = 0; x &lt; w; x++) {&#10;&#10;                r[yi] = dv[rsum];&#10;                g[yi] = dv[gsum];&#10;                b[yi] = dv[bsum];&#10;&#10;                rsum -= routsum;&#10;                gsum -= goutsum;&#10;                bsum -= boutsum;&#10;&#10;                stackstart = stackpointer - radius + div;&#10;                sir = stack[stackstart % div];&#10;&#10;                routsum -= sir[0];&#10;                goutsum -= sir[1];&#10;                boutsum -= sir[2];&#10;&#10;                if (y == 0) {&#10;                    vmin[x] = Math.min(x + radius + 1, wm);&#10;                }&#10;                p = pix[yw + vmin[x]];&#10;&#10;                sir[0] = (p &amp; 0xff0000) &gt;&gt; 16;&#10;                sir[1] = (p &amp; 0x00ff00) &gt;&gt; 8;&#10;                sir[2] = (p &amp; 0x0000ff);&#10;&#10;                rinsum += sir[0];&#10;                ginsum += sir[1];&#10;                binsum += sir[2];&#10;&#10;                rsum += rinsum;&#10;                gsum += ginsum;&#10;                bsum += binsum;&#10;&#10;                stackpointer = (stackpointer + 1) % div;&#10;                sir = stack[(stackpointer) % div];&#10;&#10;                routsum += sir[0];&#10;                goutsum += sir[1];&#10;                boutsum += sir[2];&#10;&#10;                rinsum -= sir[0];&#10;                ginsum -= sir[1];&#10;                binsum -= sir[2];&#10;&#10;                yi++;&#10;            }&#10;            yw += w;&#10;        }&#10;        for (x = 0; x &lt; w; x++) {&#10;            rinsum = ginsum = binsum = routsum = goutsum = boutsum = rsum = gsum = bsum = 0;&#10;            yp = -radius * w;&#10;            for (i = -radius; i &lt;= radius; i++) {&#10;                yi = Math.max(0, yp) + x;&#10;&#10;                sir = stack[i + radius];&#10;&#10;                sir[0] = r[yi];&#10;                sir[1] = g[yi];&#10;                sir[2] = b[yi];&#10;&#10;                rbs = r1 - Math.abs(i);&#10;&#10;                rsum += r[yi] * rbs;&#10;                gsum += g[yi] * rbs;&#10;                bsum += b[yi] * rbs;&#10;&#10;                if (i &gt; 0) {&#10;                    rinsum += sir[0];&#10;                    ginsum += sir[1];&#10;                    binsum += sir[2];&#10;                } else {&#10;                    routsum += sir[0];&#10;                    goutsum += sir[1];&#10;                    boutsum += sir[2];&#10;                }&#10;&#10;                if (i &lt; hm) {&#10;                    yp += w;&#10;                }&#10;            }&#10;            yi = x;&#10;            stackpointer = radius;&#10;            for (y = 0; y &lt; h; y++) {&#10;                // Preserve alpha channel: ( 0xff000000 &amp; pix[yi] )&#10;                pix[yi] = (0xff000000 &amp; pix[yi]) | (dv[rsum] &lt;&lt; 16) | (dv[gsum] &lt;&lt; 8) | dv[bsum];&#10;&#10;                rsum -= routsum;&#10;                gsum -= goutsum;&#10;                bsum -= boutsum;&#10;&#10;                stackstart = stackpointer - radius + div;&#10;                sir = stack[stackstart % div];&#10;&#10;                routsum -= sir[0];&#10;                goutsum -= sir[1];&#10;                boutsum -= sir[2];&#10;&#10;                if (x == 0) {&#10;                    vmin[y] = Math.min(y + r1, hm) * w;&#10;                }&#10;                p = x + vmin[y];&#10;&#10;                sir[0] = r[p];&#10;                sir[1] = g[p];&#10;                sir[2] = b[p];&#10;&#10;                rinsum += sir[0];&#10;                ginsum += sir[1];&#10;                binsum += sir[2];&#10;&#10;                rsum += rinsum;&#10;                gsum += ginsum;&#10;                bsum += binsum;&#10;&#10;                stackpointer = (stackpointer + 1) % div;&#10;                sir = stack[stackpointer];&#10;&#10;                routsum += sir[0];&#10;                goutsum += sir[1];&#10;                boutsum += sir[2];&#10;&#10;                rinsum -= sir[0];&#10;                ginsum -= sir[1];&#10;                binsum -= sir[2];&#10;&#10;                yi += w;&#10;            }&#10;        }&#10;        ret.setPixels(pix, 0, w, 0, 0, w, h);&#10;        return ret;&#10;    }&#10;" description="blur bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_save" value=" public  boolean save(final Bitmap src, final File file, final CompressFormat format, final boolean recycle) {&#10;        if (isEmptyBitmap(src) || !createFileByDeleteOldFile(file)) return false;&#10;        OutputStream os = null;&#10;        boolean ret = false;&#10;        try {&#10;            os = new BufferedOutputStream(new FileOutputStream(file));&#10;            ret = src.compress(format, 100, os);&#10;            if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;        } finally {&#10;            CloseUtils.closeIO(os);&#10;        }&#10;        return ret;&#10;    }" description="saveBitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isImage" value="    public  boolean isImage(final String filePath) {&#10;        String path = filePath.toUpperCase();&#10;        return path.endsWith(&quot;.PNG&quot;) || path.endsWith(&quot;.JPG&quot;)&#10;                || path.endsWith(&quot;.JPEG&quot;) || path.endsWith(&quot;.BMP&quot;)&#10;                || path.endsWith(&quot;.GIF&quot;);&#10;    }&#10;" description="check if file is image" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getImageTypeFromFile" value="public  String getImageType(final File file) {&#10;        if (file == null) return null;&#10;        InputStream is = null;&#10;        try {&#10;            is = new FileInputStream(file);&#10;            return getImageType(is);&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        } finally {&#10;            is.close()&#10;        }&#10;    }&#10;" description="get image type from file" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getImageTypeFromInputStream" value="public static String getImageType(final InputStream is) {&#10;        if (is == null) return null;&#10;        try {&#10;            byte[] bytes = new byte[8];&#10;            return is.read(bytes, 0, 8) != -1 ? getImageType(bytes) : null;&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        }&#10;    }" description="get image type from inputstream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_getImageTypeFromByte" value="public  String getImageType(final byte[] bytes) {&#10;        if (isJPEG(bytes)) return &quot;JPEG&quot;;&#10;        if (isGIF(bytes)) return &quot;GIF&quot;;&#10;        if (isPNG(bytes)) return &quot;PNG&quot;;&#10;        if (isBMP(bytes)) return &quot;BMP&quot;;&#10;        return null;&#10;    }&#10;" description="get image type from bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isJPEG" value="private  boolean isJPEG(final byte[] b) {&#10;        return b.length &gt;= 2&#10;                &amp;&amp; (b[0] == (byte) 0xFF) &amp;&amp; (b[1] == (byte) 0xD8);&#10;    }&#10;" description="check if image is isJPEG" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isGif" value="private  boolean isGIF(final byte[] b) {&#10;        return b.length &gt;= 6&#10;                &amp;&amp; b[0] == 'G' &amp;&amp; b[1] == 'I'&#10;                &amp;&amp; b[2] == 'F' &amp;&amp; b[3] == '8'&#10;                &amp;&amp; (b[4] == '7' || b[4] == '9') &amp;&amp; b[5] == 'a';&#10;    }" description="check if image is GiF" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isPNG" value="private  boolean isPNG(final byte[] b) {&#10;        return b.length &gt;= 8&#10;                &amp;&amp; (b[0] == (byte) 137 &amp;&amp; b[1] == (byte) 80&#10;                &amp;&amp; b[2] == (byte) 78 &amp;&amp; b[3] == (byte) 71&#10;                &amp;&amp; b[4] == (byte) 13 &amp;&amp; b[5] == (byte) 10&#10;                &amp;&amp; b[6] == (byte) 26 &amp;&amp; b[7] == (byte) 10);&#10;    }" description="check if image is PNG" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isBMP" value="  private  boolean isBMP(final byte[] b) {&#10;        return b.length &gt;= 2&#10;                &amp;&amp; (b[0] == 0x42) &amp;&amp; (b[1] == 0x4d);&#10;    }" description="check if image is BMP" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_isEmptyBitmap" value="private  boolean isEmptyBitmap(final Bitmap src) {&#10;        return src == null || src.getWidth() == 0 || src.getHeight() == 0;&#10;    }" description="check if bitmap is empty" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_compressByQuality" value=" public  Bitmap compressByQuality(final Bitmap src, @IntRange(from = 0, to = 100) final int quality, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        ByteArrayOutputStream baos = new ByteArrayOutputStream();&#10;        src.compress(Bitmap.CompressFormat.JPEG, quality, baos);&#10;        byte[] bytes = baos.toByteArray();&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);&#10;    }" description="compress bitmap by quanlity" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_input2Byte" value="    private  byte[] input2Byte(final InputStream is) {&#10;        if (is == null) return null;&#10;        try {&#10;            ByteArrayOutputStream os = new ByteArrayOutputStream();&#10;            byte[] b = new byte[MemoryConstants.KB];&#10;            int len;&#10;            while ((len = is.read(b, 0, MemoryConstants.KB)) != -1) {&#10;                os.write(b, 0, len);&#10;            }&#10;            return os.toByteArray();&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        } finally {&#10;            CloseUtils.closeIO(is);&#10;        }&#10;    }" description="inputstream to byte" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_calculateInSampleSize" value="private static int calculateInSampleSize(final BitmapFactory.Options options,&#10;                                             final int maxWidth,&#10;                                             final int maxHeight) {&#10;        int height = options.outHeight;&#10;        int width = options.outWidth;&#10;        int inSampleSize = 1;&#10;        while ((width &gt;&gt;= 1) &gt;= maxWidth &amp;&amp; (height &gt;&gt;= 1) &gt;= maxHeight) {&#10;            inSampleSize &lt;&lt;= 1;&#10;        }&#10;        return inSampleSize;&#10;    }&#10;" description="calculate bitmap  sample size" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="imageUtils_compressBySampleSize" value=" public  Bitmap compressBySampleSize(final Bitmap src, final int maxWidth, final int maxHeight, final boolean recycle) {&#10;        if (isEmptyBitmap(src)) return null;&#10;        BitmapFactory.Options options = new BitmapFactory.Options();&#10;        options.inJustDecodeBounds = true;&#10;        ByteArrayOutputStream baos = new ByteArrayOutputStream();&#10;        src.compress(Bitmap.CompressFormat.JPEG, 100, baos);&#10;        byte[] bytes = baos.toByteArray();&#10;        BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);&#10;        options.inSampleSize = calculateInSampleSize(options, maxWidth, maxHeight);&#10;        options.inJustDecodeBounds = false;&#10;        if (recycle &amp;&amp; !src.isRecycled()) src.recycle();&#10;        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);&#10;    }" description="compress bitmap by sample size" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
