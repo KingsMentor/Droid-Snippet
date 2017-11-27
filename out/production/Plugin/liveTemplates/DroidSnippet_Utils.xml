@@ -4,4 +4,9 @@
       <option name="JAVA_DECLARATION" value="true" />
     </context>
   </template>
+  <template name="util_isSpace" value="&#10;    private  boolean isSpace String s) {&#10;        if (s == null) return true;&#10;        for (int i = 0, len = s.length(); i &lt; len; ++i) {&#10;            if (!Character.isWhitespace(s.charAt(i))) {&#10;                return false;&#10;            }&#10;        }&#10;        return true;&#10;    }" description="if string is whitespace" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
 </templateSet>

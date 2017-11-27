@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>xyz.belvi.droid_snippet</id>
     <name>Droid Snippet</name>
-    <version>1.0.0-beta</version>
+    <version>1.0.1</version>
     <vendor email="nosakharebelvi@gmail.com" url="http://belvi.xyz">Nosakhare Belvi</vendor>
 
     <description><![CDATA[
@@ -34,9 +34,20 @@
       <li>Intent Utils</li>
      </ul>
 
-     <h2>1.0.1</h2>
+     <h3>1.0.1</h3>
+
+     <h4>Enhanced Utils</h4>
+
+      <li>Device Utils</li>
+      <li>Utils</li>
+
+     <h4>New Entries</h4>
      <ul>
+
+      <li>File Utils</li>
+      <li>Image Utils</li>
       <li>Service Utils</li>
+      <li>Time Utils</li>
 
      </ul>
     ]]>
