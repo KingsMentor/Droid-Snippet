@@ -15,7 +15,7 @@ Find the **Droid Snippet** action  with `CMD+J` shortcut and type the initials o
 ### Available Utils :
 
 
-* Device Utils
+* ![Device Utils](ref/DeviceUtils.md)
 * File Utils
 * ImageUtils
 * Intent Utils

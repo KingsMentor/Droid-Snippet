@@ -15,19 +15,23 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
 
         return new String[]{
 
-                "liveTemplates/DroidSnippet_Utils",
-                "liveTemplates/DroidSnippet_NetworkUtils",
+
                 "liveTemplates/DroidSnippet_DeviceUtils",
-                "liveTemplates/DroidSnippet_LocationUtils",
-                "liveTemplates/DroidSnippet_ScreenUtils",
-                "liveTemplates/DroidSnippet_PermissionUtils",
-                "liveTemplates/DroidSnippet_IntentUtils",
-                "liveTemplates/DroidSnippet_ImageUtils",
                 "liveTemplates/DroidSnippet_FileUtils",
-                "liveTemplates/DroidSnippet_ServiceUtils"
+                "liveTemplates/DroidSnippet_ImageUtils",
+                "liveTemplates/DroidSnippet_IntentUtils",
+                "liveTemplates/DroidSnippet_LocationUtils",
+                "liveTemplates/DroidSnippet_NetworkUtils",
+                "liveTemplates/DroidSnippet_PermissionUtils",
+                "liveTemplates/DroidSnippet_ScreenUtils",
+                "liveTemplates/DroidSnippet_ServiceUtils",
+                "liveTemplates/DroidSnippet_TimeUtils",
+                "liveTemplates/DroidSnippet_Utils"
         };
 
+
     }
+
 
 
     @Nullable
