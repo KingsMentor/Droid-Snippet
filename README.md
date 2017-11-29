@@ -21,6 +21,12 @@ Find the **Droid Snippet** action  with `CMD+J` shortcut and type the initials o
 * Location Utils
 * Permission Utils
 * Intent Utils
+* File Utils
+* ImageUtils
+* ServiceUtils
+* Time Utils
+* Location Utils
+* Utils (General Utilities like isEmpty, isSpace)
 
 ## Installation
 
