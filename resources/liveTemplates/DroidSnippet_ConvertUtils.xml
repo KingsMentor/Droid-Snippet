@@ -1,0 +1,132 @@
+<templateSet group="DroidSnippet_ConvertUtils">
+  <template name="convertUtils_px2sp" value="public  int px2sp(Context context, final float pxValue) {&#10;        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;&#10;        return (int) (pxValue / fontScale + 0.5f);&#10;    }&#10;" description="convert font px to sp" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_sp2px" value=" public  int sp2px(Context context,final float spValue) {&#10;        final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;&#10;        return (int) (spValue * fontScale + 0.5f);&#10;    }&#10;" description="convert sp to pixel" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_px2dp" value="public  int px2dp(Context context,final float pxValue) {&#10;        final float scale = context.getResources().getDisplayMetrics().density;&#10;        return (int) (pxValue / scale + 0.5f);&#10;    }" description="convert px to dp" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_dp2px" value="public  int dp2px(Context context,final float dpValue) {&#10;        final float scale = context.getResources().getDisplayMetrics().density;&#10;        return (int) (dpValue * scale + 0.5f);&#10;    }" description="convert dp to px" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_view2Bitmap" value=" public  Bitmap view2Bitmap(final View view) {&#10;        if (view == null) return null;&#10;        Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);&#10;        Canvas canvas = new Canvas(ret);&#10;        Drawable bgDrawable = view.getBackground();&#10;        if (bgDrawable != null) {&#10;            bgDrawable.draw(canvas);&#10;        } else {&#10;            canvas.drawColor(Color.WHITE);&#10;        }&#10;        view.draw(canvas);&#10;        return ret;&#10;    }&#10;" description="convert view to bitmap" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bytes2HexString" value=" private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};&#10; public  String bytes2HexString(final byte[] bytes) {&#10;        if (bytes == null) return null;&#10;        int len = bytes.length;&#10;        if (len &lt;= 0) return null;&#10;        char[] ret = new char[len &lt;&lt; 1];&#10;        for (int i = 0, j = 0; i &lt; len; i++) {&#10;            ret[j++] = hexDigits[bytes[i] &gt;&gt;&gt; 4 &amp; 0x0f];&#10;            ret[j++] = hexDigits[bytes[i] &amp; 0x0f];&#10;        }&#10;        return new String(ret);&#10;    }" description="convert bytes to hexadecimman string" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_hexString2Bytes" value="public  byte[] hexString2Bytes(String hexString) {&#10;        if (isSpace(hexString)) return null;&#10;        int len = hexString.length();&#10;        if (len % 2 != 0) {&#10;            hexString = &quot;0&quot; + hexString;&#10;            len = len + 1;&#10;        }&#10;        char[] hexBytes = hexString.toUpperCase().toCharArray();&#10;        byte[] ret = new byte[len &gt;&gt; 1];&#10;        for (int i = 0; i &lt; len; i += 2) {&#10;            ret[i &gt;&gt; 1] = (byte) (hex2Dec(hexBytes[i]) &lt;&lt; 4 | hex2Dec(hexBytes[i + 1]));&#10;        }&#10;        return ret;&#10;    }" description="convert hexadecimal string to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_hex2Dec" value=" private  int hex2Dec(final char hexChar) {&#10;        if (hexChar &gt;= '0' &amp;&amp; hexChar &lt;= '9') {&#10;            return hexChar - '0';&#10;        } else if (hexChar &gt;= 'A' &amp;&amp; hexChar &lt;= 'F') {&#10;            return hexChar - 'A' + 10;&#10;        } else {&#10;            throw new IllegalArgumentException();&#10;        }&#10;    }&#10;" description="hexadecimal string to decimal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_chars2Bytes" value="public  byte[] chars2Bytes(final char[] chars) {&#10;        if (chars == null || chars.length &lt;= 0) return null;&#10;        int len = chars.length;&#10;        byte[] bytes = new byte[len];&#10;        for (int i = 0; i &lt; len; i++) {&#10;            bytes[i] = (byte) (chars[i]);&#10;        }&#10;        return bytes;&#10;    }" description="convert characters to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bytes2Chars" value="    public  char[] bytes2Chars(final byte[] bytes) {&#10;        if (bytes == null) return null;&#10;        int len = bytes.length;&#10;        if (len &lt;= 0) return null;&#10;        char[] chars = new char[len];&#10;        for (int i = 0; i &lt; len; i++) {&#10;            chars[i] = (char) (bytes[i] &amp; 0xff);&#10;        }&#10;        return chars;&#10;    }" description="convert bytes to characters" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_memorySize2Byte" value=" public  long memorySize2Byte(final long memorySize, @MemoryConstants.Unit final int unit) {&#10;        if (memorySize &lt; 0) return -1;&#10;        return memorySize * unit;&#10;    }" description="convert memory size to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_byte2MemorySize" value=" public  double byte2MemorySize(final long byteNum, @MemoryConstants.Unit final int unit) {&#10;        if (byteNum &lt; 0) return -1;&#10;        return (double) byteNum / unit;&#10;    }" description="convert byte to memory size" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_byte2FitMemorySize" value="@SuppressLint(&quot;DefaultLocale&quot;)&#10;    public  String byte2FitMemorySize(final long byteNum) {&#10;        if (byteNum &lt; 0) {&#10;            return &quot;shouldn't be less than zero!&quot;;&#10;        } else if (byteNum &lt; MemoryConstants.KB) {&#10;            return String.format(&quot;%.3fB&quot;, (double) byteNum);&#10;        } else if (byteNum &lt; MemoryConstants.MB) {&#10;            return String.format(&quot;%.3fKB&quot;, (double) byteNum / MemoryConstants.KB);&#10;        } else if (byteNum &lt; MemoryConstants.GB) {&#10;            return String.format(&quot;%.3fMB&quot;, (double) byteNum / MemoryConstants.MB);&#10;        } else {&#10;            return String.format(&quot;%.3fGB&quot;, (double) byteNum / MemoryConstants.GB);&#10;        }&#10;    }&#10;" description="byte to fit memory size" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_timeSpan2Millis" value="public  long timeSpan2Millis(final long timeSpan, @TimeConstants.Unit final int unit) {&#10;        return timeSpan * unit;&#10;    }" description="timespan to milliseconds" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_millis2TimeSpan" value="public  long millis2TimeSpan(final long millis, @TimeConstants.Unit final int unit) {&#10;        return millis / unit;&#10;    }&#10;" description="convert milliseconds to timespan" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bytes2Bits" value=" public  String bytes2Bits(final byte[] bytes) {&#10;        StringBuilder sb = new StringBuilder();&#10;        for (byte aByte : bytes) {&#10;            for (int j = 7; j &gt;= 0; --j) {&#10;                sb.append(((aByte &gt;&gt; j) &amp; 0x01) == 0 ? '0' : '1');&#10;            }&#10;        }&#10;        return sb.toString();&#10;    }" description="convert bytes to bits" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bits2Bytes" value="    public  byte[] bits2Bytes(String bits) {&#10;        int lenMod = bits.length() % 8;&#10;        int byteLen = bits.length() / 8;&#10;        if (lenMod != 0) {&#10;            for (int i = lenMod; i &lt; 8; i++) {&#10;                bits = &quot;0&quot; + bits;&#10;            }&#10;            byteLen++;&#10;        }&#10;        byte[] bytes = new byte[byteLen];&#10;        for (int i = 0; i &lt; byteLen; ++i) {&#10;            for (int j = 0; j &lt; 8; ++j) {&#10;                bytes[i] &lt;&lt;= 1;&#10;                bytes[i] |= bits.charAt(i * 8 + j) - '0';&#10;            }&#10;        }&#10;        return bytes;&#10;    }" description="convert bits to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_input2OutputStream" value="public  ByteArrayOutputStream input2OutputStream(final InputStream is) {&#10;        if (is == null) return null;&#10;        try {&#10;            ByteArrayOutputStream os = new ByteArrayOutputStream();&#10;            byte[] b = new byte[MemoryConstants.KB];&#10;            int len;&#10;            while ((len = is.read(b, 0, MemoryConstants.KB)) != -1) {&#10;                os.write(b, 0, len);&#10;            }&#10;            return os;&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        } finally {&#10;            is.close()&#10;        }&#10;    }" description="convert inputstream to outputstream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_output2InputStream" value="public ByteArrayInputStream output2InputStream(final OutputStream out) {&#10;        if (out == null) return null;&#10;        return new ByteArrayInputStream(((ByteArrayOutputStream) out).toByteArray());&#10;    }" description="convert outputStream to inputStream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_inputStream2Bytes" value="public  byte[] inputStream2Bytes(final InputStream is) {&#10;        if (is == null) return null;&#10;        return input2OutputStream(is).toByteArray();&#10;    }&#10;" description="convert inputStream to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bytesInputStream" value="public static InputStream bytes2InputStream(final byte[] bytes) {&#10;        if (bytes == null || bytes.length &lt;= 0) return null;&#10;        return new ByteArrayInputStream(bytes);&#10;    }" description="convert byte to input stream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_outputStream2Bytes" value=" public  byte[] outputStream2Bytes(final OutputStream out) {&#10;        if (out == null) return null;&#10;        return ((ByteArrayOutputStream) out).toByteArray();&#10;    }&#10;" description="convert outputStream to bytes" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_bytes2OutputStream" value=" public  OutputStream bytes2OutputStream(final byte[] bytes) {&#10;        if (bytes == null || bytes.length &lt;= 0) return null;&#10;        ByteArrayOutputStream os = null;&#10;        try {&#10;            os = new ByteArrayOutputStream();&#10;            os.write(bytes);&#10;            return os;&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        } finally {&#10;            CloseUtils.closeIO(os);&#10;        }&#10;    }&#10;" description="convert bytes to outputStrean" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_inputStream2String" value="public  String inputStream2String(final InputStream is, final String charsetName) {&#10;        if (is == null || isSpace(charsetName)) return null;&#10;        try {&#10;            return new String(inputStream2Bytes(is), charsetName);&#10;        } catch (UnsupportedEncodingException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        }&#10;    }" description="convert inputStream to String" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_string2InputStream" value="public  InputStream string2InputStream(final String string, final String charsetName) {&#10;        if (string == null || isSpace(charsetName)) return null;&#10;        try {&#10;            return new ByteArrayInputStream(string.getBytes(charsetName));&#10;        } catch (UnsupportedEncodingException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        }&#10;    }" description="convert string to inputStream" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="convertUtils_outputStream2String" value="public  String outputStream2String(final OutputStream out, final String charsetName) {&#10;        if (out == null || isSpace(charsetName)) return null;&#10;        try {&#10;            return new String(outputStream2Bytes(out), charsetName);&#10;        } catch (UnsupportedEncodingException e) {&#10;            e.printStackTrace();&#10;            return null;&#10;        }&#10;    }&#10;" description="convert outputStream to string" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>

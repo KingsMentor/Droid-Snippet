@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>xyz.belvi.droid_snippet</id>
     <name>Droid Snippet</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <vendor email="nosakharebelvi@gmail.com" url="http://belvi.xyz">Nosakhare Belvi</vendor>
 
     <description><![CDATA[
@@ -18,7 +18,6 @@
 
       <a href="https://github.com/Blankj/AndroidUtilCode">AndroidUtilCode </a>
     ]]></description>
-
 
 
     <change-notes><![CDATA[
@@ -38,8 +37,12 @@
 
      <h4>Enhanced Utils</h4>
 
+    <u>
+
       <li>Device Utils</li>
       <li>Utils</li>
+
+      </ul>
 
      <h4>New Entries</h4>
      <ul>
@@ -48,6 +51,17 @@
       <li>Image Utils</li>
       <li>Service Utils</li>
       <li>Time Utils</li>
+
+     </ul>
+
+     <h3>1.0.2</h3>
+
+     <h4>New Entries</h4>
+
+     <ul>
+
+      <li>Constants</li>
+      <li>Convert Utils</li>
 
      </ul>
     ]]>

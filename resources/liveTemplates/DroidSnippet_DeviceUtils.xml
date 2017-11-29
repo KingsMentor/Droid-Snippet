@@ -1,58 +1,42 @@
 <templateSet group="DroidSnippet_DeviceUtils">
-    <template name="deviceUtils_isDeviceRooted"
-              value="public  boolean isDeviceRooted() {&#10;        String su = &quot;su&quot;;&#10;        String[] locations = {&quot;/system/bin/&quot;, &quot;/system/xbin/&quot;, &quot;/sbin/&quot;, &quot;/system/sd/xbin/&quot;, &quot;/system/bin/failsafe/&quot;,&#10;                &quot;/data/local/xbin/&quot;, &quot;/data/local/bin/&quot;, &quot;/data/local/&quot;};&#10;        for (String location : locations) {&#10;            if (new File(location + su).exists()) {&#10;                return true;&#10;            }&#10;        }&#10;        return false;&#10;    }"
-              description="check if device is rooted or not" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getSDKVersion"
-              value="public  int getSDKVersion() {&#10;        return android.os.Build.VERSION.SDK_INT;&#10;    }&#10;"
-              description="get SDK version of the device" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getAndroidID"
-              value="public  String getAndroidID(Context context) {&#10;        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);&#10;    }"
-              description="get ID of the device" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getMacAddress"
-              value="public static String getMacAddress() {&#10;        String macAddress = getMacAddressByWifiInfo();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        macAddress = getMacAddressByNetworkInterface();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        macAddress = getMacAddressByFile();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        return &quot;please open wifi&quot;;&#10;    }"
-              description="get mac address of a device" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_reboot"
-              value="public  void reboot(Context context,final String reason) {&#10;        PowerManager mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);&#10;        try {&#10;            mPowerManager.reboot(reason);&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;    }"
-              description="to reboot device" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getModel"
-              value="    public  String getModel() {&#10;        String model = Build.MODEL;&#10;        if (model != null) {&#10;            model = model.trim().replaceAll(&quot;\\s*&quot;, &quot;&quot;);&#10;        } else {&#10;            model = &quot;&quot;;&#10;        }&#10;        return model;&#10;    }"
-              description="get model of the device" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getManufacturer"
-              value="public  String getManufacturer() {&#10;        return Build.MANUFACTURER;&#10;    }"
-              description="get device manufacturer" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
-    <template name="deviceUtils_getMacAddressByNetworkInterface"
-              value="    private  String getMacAddressByNetworkInterface() {&#10;        try {&#10;            List&lt;NetworkInterface&gt; nis = Collections.list(NetworkInterface.getNetworkInterfaces());&#10;            for (NetworkInterface ni : nis) {&#10;                if (!ni.getName().equalsIgnoreCase(&quot;wlan0&quot;)) continue;&#10;                byte[] macBytes = ni.getHardwareAddress();&#10;                if (macBytes != null &amp;&amp; macBytes.length &gt; 0) {&#10;                    StringBuilder res1 = new StringBuilder();&#10;                    for (byte b : macBytes) {&#10;                        res1.append(String.format(&quot;%02x:&quot;, b));&#10;                    }&#10;                    return res1.deleteCharAt(res1.length() - 1).toString();&#10;                }&#10;            }&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;        return &quot;02:00:00:00:00:00&quot;;&#10;    }&#10;"
-              description="get mac address by network interface" toReformat="false" toShortenFQNames="true">
-        <context>
-            <option name="JAVA_DECLARATION" value="true"/>
-        </context>
-    </template>
+  <template name="deviceUtils_isDeviceRooted" value="public  boolean isDeviceRooted() {&#10;        String su = &quot;su&quot;;&#10;        String[] locations = {&quot;/system/bin/&quot;, &quot;/system/xbin/&quot;, &quot;/sbin/&quot;, &quot;/system/sd/xbin/&quot;, &quot;/system/bin/failsafe/&quot;,&#10;                &quot;/data/local/xbin/&quot;, &quot;/data/local/bin/&quot;, &quot;/data/local/&quot;};&#10;        for (String location : locations) {&#10;            if (new File(location + su).exists()) {&#10;                return true;&#10;            }&#10;        }&#10;        return false;&#10;    }" description="check if device is rooted or not" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getSDKVersion" value="public  int getSDKVersion() {&#10;        return android.os.Build.VERSION.SDK_INT;&#10;    }&#10;" description="get SDK version of the device" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getAndroidID" value="public  String getAndroidID(Context context) {&#10;        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);&#10;    }" description="get ID of the device" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getMacAddress" value="public static String getMacAddress() {&#10;        String macAddress = getMacAddressByWifiInfo();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        macAddress = getMacAddressByNetworkInterface();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        macAddress = getMacAddressByFile();&#10;        if (!&quot;02:00:00:00:00:00&quot;.equals(macAddress)) {&#10;            return macAddress;&#10;        }&#10;        return &quot;please open wifi&quot;;&#10;    }" description="get mac address of a device" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_reboot" value="public  void reboot(Context context,final String reason) {&#10;        PowerManager mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);&#10;        try {&#10;            mPowerManager.reboot(reason);&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;    }" description="to reboot device" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getModel" value="    public  String getModel() {&#10;        String model = Build.MODEL;&#10;        if (model != null) {&#10;            model = model.trim().replaceAll(&quot;\\s*&quot;, &quot;&quot;);&#10;        } else {&#10;            model = &quot;&quot;;&#10;        }&#10;        return model;&#10;    }" description="get model of the device" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getManufacturer" value="public  String getManufacturer() {&#10;        return Build.MANUFACTURER;&#10;    }" description="get device manufacturer" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="deviceUtils_getMacAddressByNetworkInterface" value="    private  String getMacAddressByNetworkInterface() {&#10;        try {&#10;            List&lt;NetworkInterface&gt; nis = Collections.list(NetworkInterface.getNetworkInterfaces());&#10;            for (NetworkInterface ni : nis) {&#10;                if (!ni.getName().equalsIgnoreCase(&quot;wlan0&quot;)) continue;&#10;                byte[] macBytes = ni.getHardwareAddress();&#10;                if (macBytes != null &amp;&amp; macBytes.length &gt; 0) {&#10;                    StringBuilder res1 = new StringBuilder();&#10;                    for (byte b : macBytes) {&#10;                        res1.append(String.format(&quot;%02x:&quot;, b));&#10;                    }&#10;                    return res1.deleteCharAt(res1.length() - 1).toString();&#10;                }&#10;            }&#10;        } catch (Exception e) {&#10;            e.printStackTrace();&#10;        }&#10;        return &quot;02:00:00:00:00:00&quot;;&#10;    }&#10;" description="get mac address by network interface" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
 </templateSet>

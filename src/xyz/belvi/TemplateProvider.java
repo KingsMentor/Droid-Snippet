@@ -16,6 +16,8 @@ public class TemplateProvider implements DefaultLiveTemplatesProvider {
         return new String[]{
 
 
+                "liveTemplates/DroidSnippet_Constants",
+                "liveTemplates/DroidSnippet_ConvertUtils",
                 "liveTemplates/DroidSnippet_DeviceUtils",
                 "liveTemplates/DroidSnippet_FileUtils",
                 "liveTemplates/DroidSnippet_ImageUtils",
