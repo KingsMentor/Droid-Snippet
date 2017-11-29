@@ -14,7 +14,8 @@ Usage:
 Find the **Droid Snippet** action  with `CMD+J` shortcut and type the initials of the utils you are looking for.
 ### Available Utils :
 
-
+* Constants
+* Convert Utils
 * ![Device Utils](ref/DeviceUtils.md)
 * File Utils
 * ImageUtils
